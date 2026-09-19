@@ -11,19 +11,53 @@ import {
 } from "@/components/ui/sheet";
 import { callUrl, navItems, property, whatsappUrl } from "@/lib/site-data";
 import type { ReactNode } from "react";
+import { useEffect, useState } from "react";
 
 export function SiteShell({ children }: { children: ReactNode }) {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 30);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <header className="fixed inset-x-0 top-0 z-40 border-b border-header-border bg-header/90 backdrop-blur-xl">
-        <div className="mx-auto grid h-20 max-w-7xl grid-cols-[minmax(0,1fr)_auto] items-center gap-4 px-5 lg:px-8">
+      <header
+        className="fixed inset-x-0 top-0 z-40 transition-all duration-500"
+        style={{
+          backgroundColor: scrolled ? "var(--header)" : "transparent",
+          borderBottomWidth: "1px",
+          borderBottomStyle: "solid",
+          borderBottomColor: scrolled ? "var(--header-border)" : "transparent",
+          backdropFilter: scrolled ? "blur(20px)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
+          boxShadow: scrolled ? "0 8px 30px color-mix(in oklab, var(--foreground) 14%, transparent)" : "none",
+        }}
+      >
+        <div
+          className="mx-auto grid max-w-7xl items-center gap-4 px-5 transition-all duration-500 lg:px-8"
+          style={{ height: scrolled ? "4.5rem" : "5.5rem", gridTemplateColumns: "minmax(0,1fr) auto" }}
+        >
           <Link to="/" className="flex min-w-0 items-center gap-3" aria-label="Aashiyana Guest House home">
-            <span className="grid size-10 shrink-0 place-items-center rounded-full border border-primary/35 bg-primary/10 text-primary">
+            <span
+              className="grid shrink-0 place-items-center rounded-full border border-primary/40 bg-primary/15 text-primary transition-all duration-500"
+              style={{ width: scrolled ? "2.5rem" : "3rem", height: scrolled ? "2.5rem" : "3rem" }}
+            >
               <Mountain className="size-5" strokeWidth={1.6} />
             </span>
             <span className="min-w-0">
-              <strong className="block truncate font-display text-lg font-semibold leading-none">Aashiyana</strong>
-              <span className="mt-1 block truncate text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-muted-foreground">Guest House · Sangla</span>
+              <strong
+                className="block truncate font-display font-semibold leading-none text-header-foreground transition-all duration-500"
+                style={{ fontSize: scrolled ? "1.15rem" : "1.4rem" }}
+              >
+                Aashiyana
+              </strong>
+              <span className="mt-1 block truncate text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-header-foreground/65">
+                Guest House · Sangla
+              </span>
             </span>
           </Link>
 

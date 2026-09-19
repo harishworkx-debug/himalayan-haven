@@ -199,6 +199,20 @@
 
 @utility animate-reveal { animation: reveal 0.8s ease-out both; }
 
+@keyframes ken-burns {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.12) translateY(-2%); }
+}
+
+@utility animate-ken-burns { animation: ken-burns 22s ease-out both; }
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@utility animate-fade-in { animation: fade-in 0.8s ease-out both; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
