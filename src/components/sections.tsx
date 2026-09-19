@@ -54,6 +54,6 @@ export function ImageFeature({ image, alt, eyebrow, title, copy, reverse = false
   </section>;
 }
 
-export function TextLink({ to, children }: { to: "/rooms" | "/gallery" | "/experiences" | "/location"; children: ReactNode }) {
+export function TextLink({ to, children }: { to: "/rooms" | "/about" | "/gallery" | "/experiences" | "/location"; children: ReactNode }) {
   return <Link to={to} className="mt-7 inline-flex items-center gap-2 border-b border-primary pb-1 text-sm font-semibold uppercase tracking-[0.14em] text-foreground transition-colors hover:text-primary">{children}<ArrowRight className="size-4" /></Link>;
 }

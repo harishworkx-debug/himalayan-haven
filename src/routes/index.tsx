@@ -3,6 +3,7 @@ import { ArrowRight, Car, Flame, HeartHandshake, MapPin, MessageCircle, Mountain
 import { Button } from "@/components/ui/button";
 import { FinalCta, ImageFeature, SectionHeading, TextLink } from "@/components/sections";
 import { callUrl, directionsUrl, galleryImages, hotelSchema, images, makeHead, property, whatsappUrl } from "@/lib/site-data";
+import type { LucideIcon } from "lucide-react";
 
 const description = "Stay at Aashiyana Guest House in Sangla for peaceful Himalayan views, clean rooms, warm hospitality and easy access to Sangla and Baspa Valley.";
 
@@ -12,6 +13,12 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const reasons: Array<{ icon: LucideIcon; title: string; copy: string }> = [
+    { icon: Mountain, title: "Mountain views", copy: "Wake to the dramatic landscapes of the Sangla Valley." },
+    { icon: Sparkles, title: "Clean rooms", copy: "Simple, comfortable spaces prepared for a restful stay." },
+    { icon: HeartHandshake, title: "Warm hospitality", copy: "Helpful, cooperative service with a welcoming local feel." },
+    { icon: MapPin, title: "Market location", copy: "A convenient Sangla base for the valley and surrounding region." },
+  ];
   return <>
     <section className="relative min-h-[92svh] overflow-hidden bg-hero pt-20 text-hero-foreground">
       <img src={images.snowyValley} alt="Sweeping snow-covered Sangla Valley landscape near Aashiyana Guest House" className="absolute inset-0 size-full object-cover" />
@@ -44,12 +51,7 @@ function HomePage() {
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading eyebrow="Why stay with us" title="The essentials, thoughtfully covered." />
         <div className="mt-12 grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            [Mountain, "Mountain views", "Wake to the dramatic landscapes of the Sangla Valley."],
-            [Sparkles, "Clean rooms", "Simple, comfortable spaces prepared for a restful stay."],
-            [HeartHandshake, "Warm hospitality", "Helpful, cooperative service with a welcoming local feel."],
-            [MapPin, "Market location", "A convenient Sangla base for the valley and surrounding region."],
-          ].map(([Icon, title, copy]) => <div key={String(title)} className="bg-card p-7 lg:p-9"><Icon className="size-7 text-primary" strokeWidth={1.5} /><h3 className="mt-8 font-display text-2xl">{String(title)}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{String(copy)}</p></div>)}
+          {reasons.map(({ icon: Icon, title, copy }) => <div key={title} className="bg-card p-7 lg:p-9"><Icon className="size-7 text-primary" strokeWidth={1.5} /><h3 className="mt-8 font-display text-2xl">{title}</h3><p className="mt-3 text-sm leading-7 text-muted-foreground">{copy}</p></div>)}
         </div>
       </div>
     </section>
