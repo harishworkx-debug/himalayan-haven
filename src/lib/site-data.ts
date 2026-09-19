@@ -1,13 +1,13 @@
-import snowyValley from "@/assets/image.png.asset.json";
-import mountainProperty from "@/assets/image-2.png.asset.json";
-import windowRoom from "@/assets/image-3.png.asset.json";
-import reception from "@/assets/image-4.png.asset.json";
-import propertyFront from "@/assets/image-5.png.asset.json";
-import diningRoom from "@/assets/image-6.png.asset.json";
-import warmHospitality from "@/assets/image-7.png.asset.json";
-import calmRoom from "@/assets/image-8.png.asset.json";
-import brightRoom from "@/assets/image-9.png.asset.json";
-import windowView from "@/assets/image-10.png.asset.json";
+import snowyValley from "@/assets/image.png";
+import mountainProperty from "@/assets/image-2.png";
+import windowRoom from "@/assets/image-3.png";
+import reception from "@/assets/image-4.png";
+import propertyFront from "@/assets/image-5.png";
+import diningRoom from "@/assets/image-6.png";
+import warmHospitality from "@/assets/image-7.png";
+import calmRoom from "@/assets/image-8.png";
+import brightRoom from "@/assets/image-9.png";
+import windowView from "@/assets/image-10.png";
 
 export const property = {
   name: "Aashiyana Guest House",
@@ -28,16 +28,16 @@ export const directionsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=Aashiyana+Guest+House%2C+C7G7%2BV9H%2C+Sangla%2C+Himachal+Pradesh+172106";
 
 export const images = {
-  snowyValley: snowyValley.url,
-  mountainProperty: mountainProperty.url,
-  windowRoom: windowRoom.url,
-  reception: reception.url,
-  propertyFront: propertyFront.url,
-  diningRoom: diningRoom.url,
-  warmHospitality: warmHospitality.url,
-  calmRoom: calmRoom.url,
-  brightRoom: brightRoom.url,
-  windowView: windowView.url,
+  snowyValley: snowyValley,
+  mountainProperty: mountainProperty,
+  windowRoom: windowRoom,
+  reception: reception,
+  propertyFront: propertyFront,
+  diningRoom: diningRoom,
+  warmHospitality: warmHospitality,
+  calmRoom: calmRoom,
+  brightRoom: brightRoom,
+  windowView: windowView,
 };
 
 export const galleryImages = [
